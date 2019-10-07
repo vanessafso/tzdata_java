@@ -1,14 +1,14 @@
 #!/bin/bash
 
-TZDATA_PATH="<%= scope.lookupvar('tzdata_java::tzdata_path') %>"
-TZDATA_VERSION="tzdata<%= scope.lookupvar('tzdata_java::tzdata_version') %>.tar.gz"
+TZDATA_PATH="<%= @tzdata_path %>"
+TZDATA_VERSION="tzdata<%= @tzdata_version %>.tar.gz"
 
 echo ""
-java -jar $TZDATA_PATH/tzupdater.jar -V
+sudo java -jar $TZDATA_PATH/tzupdater.jar -V
 echo ""
-java -jar $TZDATA_PATH/tzupdater.jar -l file:///$TZDATA_PATH/$TZDATA_VERSION --force
+sudo java -jar $TZDATA_PATH/tzupdater.jar -l file://$TZDATA_PATH/$TZDATA_VERSION --force
 echo ""
-java -jar $TZDATA_PATH/tzupdater.jar -V
+sudo java -jar $TZDATA_PATH/tzupdater.jar -V
 echo ""
 echo "Done!!"
 echo ""
